@@ -1,0 +1,351 @@
+@keyframes effect {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+@keyframes zoom {
+  0% {
+    box-shadow: 0px 0px 6px var(--shadown-color-effect);
+  }
+
+  50% {
+    box-shadow: 0px 0px 18px var(--shadown-color-effect);
+  }
+
+  100% {
+    box-shadow: 0px 0px 6px var(--shadown-color-effect);
+  }
+}
+
+@keyframes slide-in {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 50%;
+  }
+}
+
+@keyframes slide-in-back {
+  0% {
+    left: 50%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark-purple: #0c0216;
+  --dark-purple-bg: #0c0216;
+  --color-purple: #260649;
+  --light-purple: #7114ce;
+  --color-white: white;
+  --moonstars: url(../svg/moonstars.svg);
+  --shadown-color-effect: rgba(255, 255, 255, 0.5);
+}
+
+.light {
+  --dark-purple: #ddcaee;
+  --dark-purple-bg: #e6dfee;
+  --color-purple: #b988ee;
+  --light-purple: #7b28cf;
+  --color-white: #000000;
+  --moonstars: url(../svg/sun.svg);
+  --shadown-color-effect: rgba(0, 0, 0, 0.5);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--dark-purple-bg);
+  font-size: 62.5%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.div-main {
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 26em;
+  color: var(--color-white);
+}
+
+#container-title {
+  width: 25em;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  border: 0.1em solid var(--light-purple);
+  border-radius: 5em;
+  background: linear-gradient(-45deg, var(--light-purple), var(--color-purple), var(--dark-purple), var(--dark-purple), var(--color-purple), var(--light-purple)) no-repeat;
+  box-shadow: 0px 0px 3px var(--light-purple);
+  animation: gradient 15s ease infinite;
+  background-size: 300% 300%;
+  text-align: center;
+}
+
+#title {
+  font-size: 2.5em;
+  font-weight: 400;
+  margin: 0.3em;
+}
+
+#container-stopwatch {
+  display: flex;
+  width: 22em;
+  height: 22em;
+  border: 0.1em solid var(--light-purple);
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+  background: linear-gradient(-45deg, var(--light-purple), var(--color-purple), var(--dark-purple), var(--dark-purple), var(--color-purple), var(--light-purple)) no-repeat;
+  box-shadow: 0px 0px 3px var(--light-purple);
+  animation: gradient 15s ease infinite;
+  background-size: 300% 300%;
+}
+
+.border-effect {
+  animation: zoom 10s ease infinite;
+}
+
+.border-effect::after {
+  content: "";
+  position: absolute;
+  width: 23em;
+  height: 23em;
+  border-radius: 50%;
+  background-image: conic-gradient(transparent, transparent, transparent, var(--light-purple));
+  animation: effect 1s linear infinite;
+  animation-delay: -0.5s;
+  z-index: -1;
+}
+
+.border-effect::before {
+  content: "";
+  position: absolute;
+  width: 23em;
+  height: 23em;
+  border-radius: 50%;
+  background-image: conic-gradient(transparent, transparent, transparent, var(--light-purple));
+  animation: effect 1s linear infinite;
+  z-index: -1;
+}
+
+#stopwatch {
+  font-size: 5em;
+  font-weight: 200;
+  padding-left: 6px;
+  min-width: 190px;
+}
+
+#switch {
+  margin-top: 2.5em;
+  position: relative;
+}
+
+#switch button {
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: white var(--moonstars) no-repeat center;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  left: 0;
+  animation: slide-in-back .4s;
+}
+
+#switch button:hover {
+  outline: 3px solid var(--shadown-color-effect);
+  transition: outline .1s ease;
+}
+
+.light #switch button {
+  animation: slide-in .4s forwards;
+}
+
+#switch span {
+  display: block;
+  width: 5em;
+  height: 1.5em;
+  border: 0.1em solid var(--color-white);
+  border-radius: 9999px;
+  background: linear-gradient(-45deg, var(--light-purple), var(--color-purple), var(--dark-purple), var(--dark-purple), var(--color-purple), var(--light-purple)) no-repeat;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0px 0px 3px var(--light-purple);
+}
+
+#buttons {
+  display: grid;
+  gap: 0.6em;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 2em;
+}
+
+#buttons button {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  border: 0.1em solid var(--light-purple);
+  background: linear-gradient(-45deg, var(--light-purple), var(--color-purple), var(--dark-purple), var(--dark-purple), var(--color-purple), var(--light-purple)) no-repeat;
+  color: var(--color-white);
+  box-shadow: 0px 0px 3px var(--light-purple);
+  cursor: pointer;
+  transition: all .1s ease;
+}
+
+#start:hover, #pause:hover, #reset:hover {
+  background: var(--dark-purple);
+  outline: 3px solid var(--shadown-color-effect);
+  transform: scale(1.05);
+}
+
+#reset {
+  margin-top: 4em;
+}
+
+#start ion-icon, #pause ion-icon, #reset ion-icon {
+  font-size: 2em;
+}
+
+.click-effect-start #start, .click-effect-pause #pause, .click-effect-reset #reset {
+  backdrop-filter: blur(5px);
+  background: var(--color-purple);
+  animation: zoom 5s ease infinite;
+}
+
+#buttons {
+  position: relative;
+}
+
+.click-effect-start::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: 7.2em;
+  height: 7.2em;
+  border-radius: 50%;
+  background-image: conic-gradient(transparent, transparent, transparent, var(--light-purple));
+  animation: effect 1s linear infinite;
+  animation-delay: -0.5s;
+  z-index: -1;
+}
+
+.click-effect-start::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 7.2em;
+  height: 7.2em;
+  border-radius: 50%;
+  background-image: conic-gradient(transparent, transparent, transparent, var(--light-purple));
+  animation: effect 1s linear infinite;
+  z-index: -1;
+}
+
+.click-effect-pause::after {
+  content: "";
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  width: 7.2em;
+  height: 7.2em;
+  border-radius: 50%;
+  background-image: conic-gradient(transparent, transparent, transparent, var(--light-purple));
+  animation: effect 1s linear infinite;
+  animation-delay: -0.5s;
+  z-index: -1;
+}
+
+.click-effect-pause::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 7.2em;
+  height: 7.2em;
+  border-radius: 50%;
+  background-image: conic-gradient(transparent, transparent, transparent, var(--light-purple));
+  animation: effect 1s linear infinite;
+  z-index: -1;
+}
+
+.click-effect-reset::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  right: 70px;
+  width: 7.2em;
+  height: 7.2em;
+  border-radius: 50%;
+  background-image: conic-gradient(transparent, transparent, transparent, var(--light-purple));
+  animation: effect 1s linear infinite;
+  animation-delay: -0.5s;
+  z-index: -1;
+}
+
+.click-effect-reset::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  right: 70px;
+  width: 7.2em;
+  height: 7.2em;
+  border-radius: 50%;
+  background-image: conic-gradient(transparent, transparent, transparent, var(--light-purple));
+  animation: effect 1s linear infinite;
+  z-index: -1;
+}
+
+#footer {
+  text-align: center;
+  color: var(--color-white);
+  font-size: 1em;
+  font-weight: 400;
+  font-style: italic;
+  margin-top: 1em;
+}

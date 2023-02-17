@@ -9,7 +9,7 @@ O Cronômetro Dark & Light foi desenvolvido pensando na flexibilidade do seu uso
   <img alt="projeto cronometro modo light" src=".github/previewlight.png" width="45%">
 </p>
 
-<p align="center"> Acesse o projeto finalizado  <a href="https://matheus-klabunde.github.io/cronometro-dark-light/">aqui</a>
+<p align="center"> Acesse o projeto finalizado  <a href="https://matheus-klabunde.github.io/cronometro-dark-light/" target='_blank'>aqui</a>
 </p>
   
 </br>

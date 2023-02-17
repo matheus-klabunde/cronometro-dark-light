@@ -196,11 +196,6 @@ body {
   animation: slide-in-back .4s;
 }
 
-#switch button:hover {
-  outline: 3px solid var(--shadown-color-effect);
-  transition: outline .1s ease;
-}
-
 .light #switch button {
   animation: slide-in .4s forwards;
 }
@@ -234,12 +229,6 @@ body {
   box-shadow: 0px 0px 3px var(--light-purple);
   cursor: pointer;
   transition: all .1s ease;
-}
-
-#start:hover, #pause:hover, #reset:hover {
-  background: var(--dark-purple);
-  outline: 3px solid var(--shadown-color-effect);
-  transform: scale(1.05);
 }
 
 #reset {
@@ -353,4 +342,18 @@ body {
   text-decoration: none;
   color: var(--color-white);
   font-style: italic;
+}
+
+@media screen and (min-width: 992px) {
+
+  #switch button:hover {
+    outline: 3px solid var(--shadown-color-effect);
+    transition: outline .1s ease;
+  }
+
+  #start:hover, #pause:hover, #reset:hover {
+    background: var(--dark-purple);
+    outline: 3px solid var(--shadown-color-effect);
+    transform: scale(1.05);
+  }
 }
